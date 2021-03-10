@@ -4,6 +4,7 @@
 #Author: Carolyn Moorhouse
 
 percentage = float(input("Enter the percentage: "))
+round(percentage)
 
 if percentage < 0 or percentage > 100:
     print("Please enter a number between 0 and 100")
@@ -18,4 +19,3 @@ elif percentage < 70:
     print ("Merit2")
 else: #the only valid percentage remaining is between 70 and 100
     print ("Distinction")
-    
