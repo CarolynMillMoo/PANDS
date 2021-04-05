@@ -1,5 +1,5 @@
-#this program allows a user to add new students 
-#and view students, this information includes their modules and grades
+#This is a student management program which stores students name
+#modules and grades.
 #Author: Carolyn Moorhouse
 
 def displayMenu():
@@ -8,8 +8,45 @@ def displayMenu():
     print("\t(v) View students")
     print("\t(q) Quit")
     choice = input("Type one letter (a/v/q):").strip()
-
     return choice
-#Test the function
+
+def doAdd(students):
+    currentStudent = {}
+    currentStudent ["name"] = input("Enter name: ")
+    currentStudent ["modules"] = readModules()
+    students.append(currentStudent)
+
+def readModules():
+    modules = []
+    moduleName = input("\tEnter the first Module name (blank to quit):").strip()
+
+    while moduleName != "":
+        module = {}
+        module ["name "] = moduleName
+        module["grade"] = int(input("\t\tEnter grade:"))
+        modules.append(module)
+        moduleName = input("\tEnter next module name (blank to quit):").strip()
+
+    return modules
+
+def displayModules(modules):
+    print("\tName     \tGrade")
+    for module in modules:
+        print("\t{}  \t{}".format(module["name"], module["grade"]))
+    
+def doView(students):
+    for currentStudent in students:
+        print(currentStudent["name"])
+        displayModules(currentStudent["modules"])
+
+#main program
+students = []
 choice = displayMenu()
-print("You chose {}".format(choice))
+while(choice != 'q'):
+    if choice == 'a':
+        doAdd(students)
+    elif choice == 'v':
+        doView(students)
+    elif choice !=  'q':
+        print("\n\nplease select either a, v or q")
+    choice=displayMenu()
