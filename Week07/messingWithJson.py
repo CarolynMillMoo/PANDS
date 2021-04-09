@@ -9,7 +9,7 @@ electricBill = {
 }
 
 with open("storeData.json", "w") as f:
- #   json.dump(electricBill, f)
+   json.dump(electricBill, f)
 
 with open("storeData.json", "rt") as f:
     readDict = json.load(f)
