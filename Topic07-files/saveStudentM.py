@@ -30,8 +30,8 @@ def readModules():
 
     while moduleName != "":
         module = {}
-        module ["name "] = moduleName
-        module ["grade"] = int(input("\t\tEnter grade:"))
+        module["name "] = moduleName
+        module["grade"] = int(input("\t\tEnter grade:"))
         modules.append(module)
         moduleName = input("\tEnter next module name (blank to quit):").strip()
     return modules
@@ -44,7 +44,7 @@ def displayModules(modules):
 def doView(students):
     for currentStudent in students:
         print(currentStudent["name"])
-        displayModules(currentStudent["modules"])
+        displayModules(currentStudent["modules"]);
         print("in viewing")
 
 def doSave(students):
