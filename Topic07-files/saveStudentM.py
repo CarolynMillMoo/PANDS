@@ -8,13 +8,18 @@ def writeDict(obj):
     with open(filename, 'wt') as f:
         json.dump(obj,f)
 
+def readDict(students):
+     with open (filename) as f:
+        return json.load(f)
+
 def displayMenu():
     print("What would you like to do?")
     print("\t(a) Add new student")
     print("\t(v) View students")
     print("\t(s) Save students")
+    print("\t(l Load Students")
     print("\t(q) Quit")
-    choice = input("Type one letter (a/v/s/q):").strip()
+    choice = input("Type one letter (a/v/s/l/q):").strip()
     return choice
 
 def doAdd(students):
@@ -51,15 +56,21 @@ def doSave(students):
     writeDict(students)
     print("students saved")
 
+def doLoad(students):
+    students = readDict(students)
+    print ("Students loaded")
+
 #main program
 choice = displayMenu()
 while(choice != 'q'):
     if choice == 'a':
-        doAdd(students)
+       doAdd(students)
     elif choice == 'v':
         doView(students)
     elif choice == 's':
         doSave(students)
+    elif choice == "l":
+        doLoad(students)
     elif choice !=  'q':
-        print("\n\nplease select either a, v, s or q")
+        print("\n\nplease select either a, v, s, l, or q")
     choice=displayMenu()
