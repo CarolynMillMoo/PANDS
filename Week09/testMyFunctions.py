@@ -3,7 +3,7 @@
 
 import myFunctions as mf
 
-print(mf.factorial(7))
+print(mf.factorial(-10))
 
 #assert mf.factorial(7) == 5040
 

@@ -1,6 +1,9 @@
 #following along with lecture 09
 #a module of useful functions
 #Author: Carolyn Moorhouse
+import logging
+
+logging.basicConfig(level = logging.WARNING)
 
 """
 function that returns the factorial number of an int
@@ -9,14 +12,17 @@ ie
 """
 
 def factorial(num):
+    if num <0:
+        logging.warn("factorial received a number less than 0")
+        return -1
     if num == 1:
         return 1
     factorial =  1
     num +=1
     for i in range(1, num):
-        #print("before mult", factorial, "by", i)
+        logging.debug("before mult %d by %d", factorial, "by", i)
         factorial *= i
-        #print("after mult", factorial)
+        logging.debug("after mult %d", factorial)
     return factorial
 
 if __name__ == "__main__":
